@@ -4,7 +4,8 @@ import About from "./components/About";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForms from "./components/TextForms";
-import { BrowserRouter, Switch, Route,Router,Routes } from "react-router-dom";
+import {BrowserRouter as Router,Switch,Routes, Route } from "react-router-dom";
+
 
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enable or not
@@ -22,13 +23,12 @@ function App() {
   };
 
   const toggleMode = (cls) => {
-    console.log(cls)
+    console.log(cls);
     if (mode === "dark") {
       setMode("light");
-      document.body.style.backgroundColor = "white"; 
+      document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enable", "sucess");
       document.title = "TextUtils-Dark Mode";
-      
     } else {
       setMode("dark");
       document.body.style.backgroundColor = "gray";
@@ -37,7 +37,7 @@ function App() {
   };
   return (
     <>
-      <BrowserRouter forceRefresh>
+      
         <Navbar
           title="TextUtiles"
           aboutText="About"
@@ -45,24 +45,20 @@ function App() {
           toggleMode={toggleMode}
         />
         <Alert alert={alert} />
+        <div className="container my-3" ></div>
         <Switch>
-          {/* <Route exact path="/about" component={About}>
-            <About/>
-          <Route/> */}
-          <Route exact path="/about" component={About}>
-            <About mode={mode}/>
-          </Route>
-         
-          <Route exact path="/">
-            <TextForms
-              showAlert={showAlert}
-              heading="Try TextUtils-Word Counter, Character Counter, Remove extra spaces"
-              mode={mode}
-            />
-          </Route>
+        
+           <Route  path="/about" >
+            <About  mode={mode}/>
+          </Route> 
           
-        </Switch>
-      </BrowserRouter>
+          <Route exact path="/" >
+              <TextForms showAlert={showAlert}
+              heading="Try TextUtils-Word Counter, Character Counter, Remove extra spaces"
+              mode={mode}/></Route>
+           
+           </Switch>
+     
     </>
   );
 }

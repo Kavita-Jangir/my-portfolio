@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 
 function About(props) {
     // const[myStyle,setMyStyle]=useState({
@@ -28,7 +28,7 @@ function About(props) {
   }
 
   return (
-    <div className='container my-3 border-1px solid black'style={myStyle}>
+    <div className='container my-3 border-1px solid black'style={myStyle} id="about">
     <h1>About Us</h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">

@@ -32,7 +32,7 @@ function TextForms(props) {
       <div
         className={`container py-3 text-${props.mode === "dark" ? "white" : "black" }`}
         // style={{ color: props.mode === "light" ? "black" : "white" }}
-      >
+       id="textform">
         <h3>{props.heading}</h3>
         <div className="mb-3">
           <textarea
